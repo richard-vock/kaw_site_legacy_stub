@@ -2,34 +2,30 @@
 	import { page } from '$app/stores';
 	import logo from '$lib/images/svelte-logo.svg';
 	import github from '$lib/images/github.svg';
+
+	import MainMenu from './MainMenu.svelte';
+
+	let y = 0;
+	let vh = 0;
+	$:home = $page.url.pathname === '/';
+	$:threshold = home ? (parseInt(vh) - 40) : 0;
+	$:sticky = y > threshold;
+
+	let mobile = false;
+	let sticky = false;
+	let showLoginMenu = false;
 </script>
 
-<header>
+<svelte:window bind:scrollY={y} bind:innerHeight={vh} />
+
+<header class:mobile class:sticky class:nav={!mobile} class:login-mode={showLoginMenu}>
 	<div class="corner">
 		<a href="https://kit.svelte.dev">
 			<img src={logo} alt="SvelteKit" />
 		</a>
 	</div>
 
-	<nav>
-		<svg viewBox="0 0 2 3" aria-hidden="true">
-			<path d="M0,0 L1,2 C1.5,3 1.5,3 2,3 L2,0 Z" />
-		</svg>
-		<ul>
-			<li aria-current={$page.url.pathname === '/' ? 'page' : undefined}>
-				<a href="/">Home</a>
-			</li>
-			<li aria-current={$page.url.pathname === '/about' ? 'page' : undefined}>
-				<a href="/about">About</a>
-			</li>
-			<li aria-current={$page.url.pathname.startsWith('/sverdle') ? 'page' : undefined}>
-				<a href="/sverdle">Sverdle</a>
-			</li>
-		</ul>
-		<svg viewBox="0 0 2 3" aria-hidden="true">
-			<path d="M0,0 L0,3 C0.5,3 0.5,3 1,2 L2,0 Z" />
-		</svg>
-	</nav>
+	<MainMenu />
 
 	<div class="corner">
 		<a href="https://github.com/sveltejs/kit">
@@ -40,8 +36,35 @@
 
 <style>
 	header {
+    position: absolute;
+    top: 0;
+    left: 0;
 		display: flex;
+    flex-direction: row;
+		align-items: center;
 		justify-content: space-between;
+		width: 100%;
+    height: var(--menu-height);
+
+    box-shadow: rgba(41, 44, 61, 0.1) 2px 15px 50px 0px;
+    z-index: 980;
+    background: white;
+	}
+	@media only screen and (min-width: 768px) {
+		header {
+			box-shadow: none;
+			z-index: 0;
+			background: none;
+		}
+	}
+
+	header.sticky {
+			position: fixed;
+			top: 0;
+			left: 0;
+			box-shadow: rgba(41, 44, 61, 0.1) 2px 15px 50px 0px;
+			z-index: 980;
+			background: white;
 	}
 
 	.corner {

@@ -1,107 +1,168 @@
 @import '@fontsource/fira-mono';
 
+@font-face {
+	font-family: 'Nunito';
+	font-style: normal;
+	src: local('Nunito'), url($lib/fonts/NunitoSans-Light.ttf) format('truetype');
+}
+
+@font-face {
+	font-family: 'Nunito';
+	font-style: italic;
+	src: local('Nunito'), url($lib/fonts/NunitoSans-LightItalic.ttf) format('truetype');
+}
+
+@font-face {
+	font-family: 'Raleway';
+	font-weight: 300;
+	font-style: normal;
+	src: local('Raleway'), url($lib/fonts/Raleway-Light.ttf) format('truetype');
+}
+
+@font-face {
+	font-family: 'Raleway';
+	font-weight: 300;
+	font-style: italic;
+	src: local('Raleway'), url($lib/fonts/Raleway-LightItalic.ttf) format('truetype');
+}
+
+@font-face {
+	font-family: 'Raleway';
+	font-weight: 600;
+	font-style: normal;
+	src: local('Raleway'), url($lib/fonts/Raleway-Bold.ttf) format('truetype');
+}
+
+@font-face {
+	font-family: 'Raleway';
+	font-weight: 600;
+	font-style: italic;
+	src: local('Raleway'), url($lib/fonts/Raleway-BoldItalic.ttf) format('truetype');
+}
+
+
 :root {
-	--font-body: Arial, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
-		Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-	--font-mono: 'Fira Mono', monospace;
-	--color-bg-0: rgb(202, 216, 228);
-	--color-bg-1: hsl(209, 36%, 86%);
-	--color-bg-2: hsl(224, 44%, 95%);
-	--color-theme-1: #ff3e00;
-	--color-theme-2: #4075a6;
-	--color-text: rgba(0, 0, 0, 0.7);
-	--column-width: 42rem;
-	--column-margin-top: 4rem;
-	font-family: var(--font-body);
-	color: var(--color-text);
+	/* base extends */
+	--page-width: 1280px;
+	--page-padding: 40px;
+	--menu-height: 80px;
+	/* fonts */
+	--running-font: 'Nunito', sans-serif;
+	--running-font-weight: 400;
+	--heading-font: 'Raleway', sans-serif;
+	--heading-font-weight: 600;
+	--heading-font-light-weight: 300;
+	/* colors */
+	--primary: #be1622;
+	--error: #b35600;
+	--grey: #5f5f63;
+	/* --mid-grey: #606060; */
+	--dark-grey: #1A181B;
+	/* --red: #af0000; */
+	/* --green: #30a050; */
+	/* --light-green: #5edb5e; */
+}
+
+* {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	margin: 0;
+}
+
+html {
+	height: 100%;
+	font-size: 17px;
+	overflow-y: scroll;
 }
 
 body {
-	min-height: 100vh;
-	margin: 0;
-	background-attachment: fixed;
-	background-color: var(--color-bg-1);
-	background-size: 100vw 100vh;
-	background-image: radial-gradient(
-			50% 50% at 50% 50%,
-			rgba(255, 255, 255, 0.75) 0%,
-			rgba(255, 255, 255, 0) 100%
-		),
-		linear-gradient(180deg, var(--color-bg-0) 0%, var(--color-bg-1) 15%, var(--color-bg-2) 50%);
+	height: 100%;
+	font-size: 90%;
+	font-family: var(--running-font);
+	font-weight: var(--running-font-weight);
+	line-height: 1.7;
+	/* background-color: var(--uni-blue); */
 }
 
-h1,
-h2,
-p {
-	font-weight: 400;
+::selection {
+	background: var(--primary);
+	color: #fff;
 }
 
-p {
-	line-height: 1.5;
-}
-
-a {
-	color: var(--color-theme-1);
-	text-decoration: none;
-}
-
-a:hover {
-	text-decoration: underline;
-}
-
-h1 {
-	font-size: 2rem;
-	text-align: center;
-}
-
-h2 {
-	font-size: 1rem;
-}
-
-pre {
-	font-size: 16px;
-	font-family: var(--font-mono);
-	background-color: rgba(255, 255, 255, 0.45);
-	border-radius: 3px;
-	box-shadow: 2px 2px 6px rgb(255 255 255 / 25%);
-	padding: 0.5em;
-	overflow-x: auto;
-	color: var(--color-text);
-}
-
-.text-column {
-	display: flex;
-	max-width: 48rem;
-	flex: 0.6;
-	flex-direction: column;
-	justify-content: center;
-	margin: 0 auto;
-}
-
-input,
-button {
-	font-size: inherit;
-	font-family: inherit;
-}
-
-button:focus:not(:focus-visible) {
-	outline: none;
-}
-
-@media (min-width: 720px) {
-	h1 {
-		font-size: 2.4rem;
+@media only screen and (min-width: 375px) {
+	body {
+		font-size: 95%;
 	}
 }
 
-.visually-hidden {
-	border: 0;
-	clip: rect(0 0 0 0);
-	height: auto;
-	margin: 0;
-	overflow: hidden;
-	padding: 0;
-	position: absolute;
-	width: 1px;
-	white-space: nowrap;
+@media only screen and (min-width: 425px) {
+	body {
+		font-size: 100%;
+	}
+}
+
+
+h1 {
+	font-size: 0.7em;
+	font-family: var(--heading-font);
+	font-weight: var(--heading-font-weight);
+	line-height: 1.4;
+	text-transform: uppercase;
+}
+
+h2 {
+	font-size: 2.5em;
+	font-family: var(--heading-font);
+	font-weight: var(--heading-font-light-weight);
+	line-height: 1.2;
+}
+
+h3 {
+	font-size: 1.2em;
+	font-family: var(--heading-font);
+	font-weight: var(--heading-font-light-weight);
+	line-height: 1.5;
+}
+
+p {
+	margin-top: 2em;
+	margin-bottom: 2em;
+	text-align: justify;
+	text-justify: inter-word;
+}
+
+input {
+	border: 1px solid var(--dark-grey);
+	background-color: rgba(0, 0, 0, 0);
+	padding: 0.2em;
+	font-size: 0.9em;
+}
+
+input:focus {
+	outline: none;
+	border: 1px solid var(--primary);
+	background-color: rgba(0, 0, 0, 0);
+	padding: 0.2em;
+}
+
+div.container {
+	width: 100%;
+	max-width: var(--page-width);
+	padding: 0 15px;
+	margin: 0 auto;
+}
+
+@media only screen and (min-width: 425px) {
+	div.container {
+		padding: 0 var(--page-padding);
+	}
+}
+
+.center {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
 }
