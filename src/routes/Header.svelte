@@ -19,36 +19,24 @@
 <svelte:window bind:scrollY={y} bind:innerHeight={vh} />
 
 <header class:mobile class:sticky class:nav={!mobile} class:login-mode={showLoginMenu}>
-	<div class="corner">
-		<a href="https://kit.svelte.dev">
-			<img src={logo} alt="SvelteKit" />
-		</a>
-	</div>
-
 	<MainMenu />
-
-	<div class="corner">
-		<a href="https://github.com/sveltejs/kit">
-			<img src={github} alt="GitHub" />
-		</a>
-	</div>
 </header>
 
 <style>
 	header {
-    position: absolute;
-    top: 0;
-    left: 0;
-		display: flex;
-    flex-direction: row;
-		align-items: center;
-		justify-content: space-between;
-		width: 100%;
-    height: var(--menu-height);
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: var(--menu-height);
 
-    box-shadow: rgba(41, 44, 61, 0.1) 2px 15px 50px 0px;
-    z-index: 980;
-    background: white;
+        box-shadow: rgba(41, 44, 61, 0.1) 2px 15px 50px 0px;
+        z-index: 980;
+        background: white;
 	}
 	@media only screen and (min-width: 768px) {
 		header {
