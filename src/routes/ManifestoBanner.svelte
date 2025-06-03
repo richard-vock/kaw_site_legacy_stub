@@ -5,9 +5,6 @@
 		<p class="slogan">Bauen. Instandhalten. Putzen.<br />Organisieren. Feiern. Kämpfen.</p>
 		<p>Velit ut, risus erat urna, mollis nulla fringilla blandit viverra consequat, erat lorem lectus, ipsum blandit. Consectetuer nec ligula pretium quaerat, nonummy turpis deleniti a quisque nullam massa. Nam nulla eget nec suspendisse vitae, eget tortor, ante lectus feugiat vestibulum eu lacus elit, volutpat pharetra fusce. Sed sociis explicabo nulla vestibulum facilisis lacinia,</p>
 		<div class="center">
-			<!-- <frontend-button> -->
-				<!-- 		Unser Selbstverständnis -->
-				<!-- </frontend-button> -->
 		</div><!-- center -->
 	</div>
 </div>
